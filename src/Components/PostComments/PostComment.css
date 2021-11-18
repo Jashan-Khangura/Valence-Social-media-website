@@ -1,0 +1,256 @@
+  .PostPage {
+  margin-left: 60px;
+  margin-top: 50px;
+  }
+  .brandHeading {
+    float:left; 
+    margin-top:-35px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  }
+
+  .container {
+    padding: 2px 15px;
+  }
+
+  .posts {
+    display: flex;
+    flex-direction: column;
+    float: left;
+    max-height: 10%;
+  }
+
+  .styleNewPost {
+    margin-top: -55px;
+  }
+
+  .topSection {
+    position: relative;
+    display: flex;
+    margin-top: -30px;
+    margin-left: 680px;
+    margin-bottom: 30px;
+    flex-direction: row;
+  }
+
+  .cardImgStyle {
+    width: 590px; 
+    height:360px;
+    object-fit:contain;
+  }
+
+  .topSection > Button {
+  width: 120px;
+  height: 40px;
+  }
+
+  .Searchbar {
+    position: relative;
+    margin-right: 5px;
+    width: 400px;
+    height: 40px;
+    border-radius: 5px;
+    border: 1px solid gray;
+  }
+
+  .Cards {
+     background-color: white;
+     text-align: left;
+     margin-bottom: 60px;
+     border-radius: 5px;
+     overflow: auto;
+     max-width: 650px;
+     min-height: 550px;
+     max-height: 750px;
+    text-overflow: ellipsis;
+    box-shadow: 3px 5px 5px 3px rgba(0, 0, 0, 0.2);
+  }
+
+  .likeDislike {
+    margin-left: 20px;
+    width:35px;
+    height:35px;
+    border-radius:5px;
+    margin-top:25px;
+  }
+
+  #dislike {
+    margin-left: 25px;
+  }
+
+  #logoutStyle {
+    color:red; 
+    margin-top: -30px;
+    height: 40px;
+    margin-top: 1px;
+    margin-Left: 10px;
+    float: right;
+    text-decoration:none;
+  }
+
+  #logoutStyle:hover {
+    background-color: white;
+  }
+
+  .showDel {
+    float: right; 
+    width:35px;
+    margin-right: 20px;
+    margin-top:25px;
+    height:35px;
+    border-radius:5px;
+  }
+
+  .hideDel {
+    visibility: hidden;
+  }
+
+  .styleSideBar {
+     position: relative;
+     float: right;
+     margin-right: 50px;
+  } 
+  Button:hover {
+    background-color: white;
+  }
+
+  
+
+ @media (max-width: 1280px) {
+  .cardImgStyle {
+    width: 530px;
+    height: 290px;
+  }
+  .Cards {
+    max-width: 600px;
+     min-height: 400px;
+     max-height: 600px;
+     white-space:normal;
+  	 overflow:scroll;
+     text-overflow: ellipsis;
+  }
+  .Searchbar {
+    width: 250px;
+    height: 40px;
+    margin-left: -250px;
+  }
+  
+  .brandHeading {
+    float:left; 
+    font-size: 27px;
+  }
+
+  #logoutStyle {
+    font-size: 10px;
+    width: 65px;
+    height: 40px;
+    float: right;
+  }
+}
+
+ @media (max-width: 950px) {
+  .cardImgStyle {
+    width: 480px;
+    height: 280px;
+  }
+  .Cards {
+    max-width: 530px;
+     min-height: 400px;
+     max-height: 570px;
+     white-space:normal;
+  	 overflow:scroll;
+     text-overflow: ellipsis;
+  }
+  .Searchbar {
+    width: 250px;
+    height: 40px;
+    margin-left: -380px;
+  }
+  
+  .brandHeading {
+    float:left; 
+    font-size: 28px;
+  }
+
+  #logoutStyle {
+    font-size: 12px;
+    width: 70px;
+    height: 40px;
+    float: right;
+    margin-left: -30px;
+  }
+ }
+
+ @media (max-width: 800px) {
+  .cardImgStyle {
+    width: 400px;
+    height: 230px;
+  }
+  .Cards {
+    max-width: 450px;
+     min-height: 350px;
+     max-height: 550px;
+     font-size: 12px;
+     white-space:normal;
+  	 overflow:scroll;
+     text-overflow: ellipsis;  }
+  
+  .Searchbar {
+    width: 280px;
+    font-size: 12px;
+    height: 30px;
+    margin-left: -450px;
+  }
+  
+  .brandHeading {
+    float:left; 
+    font-size: 35px;
+  }
+
+  #logoutStyle {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 700px) {
+  .styleSideBar {
+    display: none;
+  }
+}
+
+@media (max-width: 520px) {
+   .cardImgStyle {
+      width: 580px;
+      height: 300px;
+    }
+    .Cards {
+      max-width: 620px;
+       min-height: 250px;
+       max-height: 570px;
+       font-size: 15px;
+       white-space:normal;
+       overflow:scroll;
+       text-overflow: ellipsis;
+      margin-left: 20px;
+    }
+
+     
+  .Searchbar {
+    align-items: center;
+    width: 300px;
+    font-size: 10px;
+    height: 30px;
+    margin-left: -550px;
+  }
+  
+  .brandHeading {
+    float:left; 
+    font-size: 20px;
+  }
+
+  #drop {
+    font-size: 10px;
+    width: 30px;
+    height: 65px;
+    float: right;
+  }
+}

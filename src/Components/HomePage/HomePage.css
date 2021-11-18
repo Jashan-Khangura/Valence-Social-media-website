@@ -1,0 +1,157 @@
+.handStyle {
+  color: blueviolet;
+  font-family: 'Montserrat', sans-serif;
+  position: center;
+}
+
+#navButton Button {
+  height:40px;
+  width:80px;
+}
+
+.linkstyle {
+    overflow: hidden;
+    padding: 40px;
+  }
+
+.linkstyle a{
+    float: left;
+    color: blue;
+  display: block;
+  text-align: center;
+  padding: 14px 16px;
+  font-size: 17px;
+  text-decoration: none;
+  border-bottom: 3px solid transparent;
+}
+
+.linkstyle a:hover {
+    border-bottom: 3px solid lightblue;
+    text-decoration: none;
+    font-weight: 500;
+    color: blue;  
+}
+
+
+@keyframes image-slide {
+    0% { transform: translateX(-130px) scale(0); }
+    60% { transform: translateX(-130px) scale(1); }
+    90% { transform: translateX(0px) scale(1); }
+    100% { transform: translateX(0px) scale(1); }  
+  }
+
+  .image-container img {
+    animation: image-slide 4s cubic-bezier(.5,.5,0,1);
+    animation-fill-mode: forwards;
+    width:800px;
+     height:520px;
+     float: left; 
+  }
+
+.text-container{
+    padding: 20px;
+    color: blue;
+    display: block;
+    position: relative;
+    margin-left: 100px;
+}
+
+.text-container h1{ 
+  animation: 2s slide-right 2s forwards;
+  transform:translateX(-200%);
+}
+
+.text-container Button{
+width: 250px;
+animation: 2s slide-right 2s forwards;
+  transform:translateX(-500%);
+}
+
+@keyframes slide-right {
+    to {
+        transform:translateX(0);
+      }
+ }
+
+ @media (max-width: 1200px) {
+  .image-container img {
+     width: 500px;
+     height: 400px;
+     padding: 10px;
+  }
+}
+
+ @media (max-width: 820px) {
+   .image-container img {
+      width: 400px;
+      height: 300px;
+      padding: 10px;
+   }
+   .text-container h1 {
+     font-size: large;
+    text-align: center;
+   }
+   .text-container Button {
+    width: 180px;
+    font-size: 15px;
+    height: 50px;
+    margin-left: 40px;
+  }
+ }
+
+ @media (max-width: 550px) {
+  .image-container img {
+     width: 210px;
+     height: 160px;
+  }
+  .text-container h1 {
+    text-align: center;
+    font-size: small;
+  }
+
+  .text-container Button {
+    width: 130px;
+    font-size: 12px;
+    height: 35px;
+    float: right;
+    margin-top: -50px;
+  }
+  
+  Nav h1 {
+    font-size: large;
+  }
+  #navButton Button {
+    height:30px;
+    width:70px;
+    font-size: 11px;
+  } 
+}
+
+@media (max-width: 320px) {
+  .image-container img {
+     width: 150px;
+     height: 120px;
+  }
+  .text-container h1 {
+    font-size: 8px;
+  }
+
+  .text-container Button {
+    width: 90px;
+    font-size: 7px;
+    height: 27px;
+    float: right;
+    margin-top: -50px;
+  }
+  
+  Nav h1 {
+    font-size: medium;
+  }
+
+  #navButton Button {
+    height:30px;
+    width:60px;
+    font-size: 10px;
+  }
+  
+}

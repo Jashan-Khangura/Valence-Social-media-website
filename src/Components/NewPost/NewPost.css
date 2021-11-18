@@ -1,0 +1,66 @@
+.NewPost {
+    margin: 35px auto;
+    width: 80%;
+    text-align: center;
+    padding: 20px;
+}
+
+.NewPost Button {
+    
+    background-color:white;
+}
+
+.modalBody{
+    align-content: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.textareaDiv{
+    margin: 10px;
+}
+
+.text{
+    margin-top: 15px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    background-color:whitesmoke;
+}
+
+.image-upload 
+{
+    margin: 5px;
+}
+
+.image-upload img
+{
+    width: 35px;
+    height: 35px;
+    padding: 5px;
+    float: left;
+}
+
+
+.imageDiv
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 10px;
+    margin-bottom: 25px;
+}
+
+.imageDiv p {
+    margin-right: 25px;
+}
+
+@media (max-width: 800px) {
+    #AddPost {
+        color:blue;
+        padding: 1px;
+        width: 38px;
+        height: 31px;
+        background-color:white;
+    }
+}

@@ -1,0 +1,40 @@
+.sidequeue{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    max-width: 500px;
+}
+
+#pSide {
+    font-size:12px; 
+    overflow-wrap:break-word;
+}
+
+.news{
+    margin-bottom: 10px;
+}
+
+@media (max-width: 1250px) {
+    .sidequeue {
+        max-width: 250px;
+    }
+   }
+
+@media (max-width: 950px) {
+    .sidequeue {
+        max-width: 200px;
+    }
+   }
+
+   
+@media (max-width: 850px) {
+    .sidequeue {
+        max-width: 150px;
+    }
+    #sideHeading {
+        font-size: 18px;
+    }
+    #pSide {
+        font-size: 10px;
+    }
+   }

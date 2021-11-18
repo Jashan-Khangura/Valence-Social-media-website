@@ -1,0 +1,9 @@
+#logoutStyle {
+    color:red; 
+    height: 40px;
+    margin-right: 35px;
+    text-decoration:none;
+  }
+  #logoutStyle:hover {
+    border-bottom: 1px solid red;
+  }
