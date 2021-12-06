@@ -8,6 +8,36 @@ export const HandleAuth = (user) => {
     }
 }
 
+export const likePost = (username, postId) => {
+const req = {
+    username,
+    postId
+}
+return (dispatch) => {
+    axios.post('/Data/' + postId + '/LikedBy.json', req)
+    .then((res) => {
+       dispatch({
+           type: actionTypes.Like_Post,
+           payload: res
+       })
+    })
+}
+}
+
+export const unlikePost = (id, unlikeId) => {
+    return (dispatch) => {
+        axios.delete('/Data/' + id + '/LikedBy/' + unlikeId.id + '.json')
+        .then((res) => {
+           dispatch({
+               type: actionTypes.Unlike_Post
+           })
+        }).catch((error) => {
+            console.log(error)
+        })
+    }
+    }
+    
+
 export const NewPostSuccess = (id, postData) => {
     return {
         type: actionTypes.New_Post_Success,

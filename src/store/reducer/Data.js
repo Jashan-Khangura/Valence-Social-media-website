@@ -3,8 +3,8 @@ import * as actionTypes from '../actions/actionTypes';
 const initialState = {
     Data: [],
     loading: false,
-    currentUser: ''
-}
+    currentUser: '',
+  }
 
 const reducer = (state = initialState, action) => { 
     switch(action.type){
@@ -14,6 +14,21 @@ const reducer = (state = initialState, action) => {
         ...state,
         currentUser: action.payload,
         loading:false
+      }
+
+      case actionTypes.Like_Post: 
+      return {
+        ...state,
+        Data: state.Data.map((post) => post.id === action.payload.postId
+        ? {...post, LikedBy: post.LikedBy.concat(action.payload.username)}:post),
+        loading: false,
+      }
+
+      case actionTypes.Unlike_Post: 
+      return {
+        ...state,
+        Data: state.Data,
+        loading: false,
       }
 
         case actionTypes.New_Post_Error: 

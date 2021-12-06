@@ -4,7 +4,6 @@ import './PostComment.css';
 import Spinner from '../../UI/Spinner/Spinner';
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { faThumbsUp } from "@fortawesome/free-solid-svg-icons";
-import { faThumbsDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import NewPost from '../NewPost/NewPost';
 import {connect} from 'react-redux';
@@ -16,7 +15,8 @@ class PostComment extends Component{
 
 state={
     showNewPost: false,
-     search: ""
+    search: "",
+    post: false,
 }
 
 
@@ -34,6 +34,14 @@ ShowFunction = () => {
 
 searchHandler = (event) => {
     this.setState({search: event.target.value});
+}
+
+postLiked = (id) => {
+    this.props.onLikePost(this.props.user, id)
+}
+
+postUnliked = (id, unlikeID) => {
+    this.props.onUnlikePost(id, unlikeID)
 }
 
 render() {
@@ -84,7 +92,23 @@ render() {
                     return res;
                 }    
 
-            }).reverse().map((res) => (    
+            }).reverse().map((res) => {     
+        
+                const liked = [];
+                for(let key in res.LikedBy){
+                        liked.push({
+                        ...res.LikedBy[key],
+                        id: key
+                    });
+                }
+
+                let boolButton = false;
+                if(liked.filter((val) => {
+                    if(val.username === this.props.user) {
+                        boolButton = true
+                    }
+                }))
+        return(
         <div>
                    <Card
                    key={res.id}
@@ -107,29 +131,34 @@ render() {
                             </div>                  
 
                     <div className="bottomButtons">
-                    <Button className="btn btn-light likeDislike"
-                    >
-                     <center>
-                     <FontAwesomeIcon icon={faThumbsUp} style={{width:"15px"}}/>
-                     </center>
-                     </Button> 
-                
-                     <Button className="btn btn-light likeDislike"
-                     id="dislike"
+                   
+                    {boolButton ? <Button className="btn btn-primary likeDislike"
+                    id="likeButton"
+                    onClick={() => this.postUnliked(res.id, liked.find((val) => {
+                        if(val.username === this.props.user){
+                            return val.id;
+                        }
+                    }))}
                      >
-                     <center>
-                     <FontAwesomeIcon icon={faThumbsDown} style={{width:"15px"}}/>
-                     </center>
-                     </Button> 
+                     <FontAwesomeIcon icon={faThumbsUp} style={{width:"13.5px", color:"white"}}/>
+                     </Button> : <Button className="btn btn-light likeDislike"
+                    id="likeButton"
+                    onClick={() => this.postLiked(res.id)}
+                    >
+                     <FontAwesomeIcon icon={faThumbsUp} style={{width:"13.5px"}}/>
+                     </Button>
+                      }
+
+                    <label
+                    style={{fontSize:"13px", padding:"20px"}}
+                    >
+                        Liked by {liked.length} people.
+                    </label>
                      
                  <Button className={(res.User === this.props.user.split('@')[0] ? "btn btn-danger showDel" : "hideDel")}
                  onClick={() => this.props.onDeletePost(res.id)}
                  >
-                     
-                     <center>
-                     <FontAwesomeIcon icon={faTrash} style={{width:"10px"}}/>
-                     </center>
-
+                     <FontAwesomeIcon icon={faTrash} style={{width:"12px", marginLeft:"-1px"}}/>   
                      </Button>
                      </div> 
                    </Card.Body>
@@ -138,7 +167,7 @@ render() {
                    </Card.Footer>
                    </Card>                                
            </div>
-       )
+        )}
 )}
 </div>
 </div>
@@ -158,14 +187,16 @@ const mapStateToProps = state => {
     return {
         data: state.Data,
         loading: state.loading,
-        user: state.currentUser
+        user: state.currentUser,
     };
 };
 const mapDispatchToProps = dispatch => {
     return {
         onFetchPosts: () => dispatch(actions.FetchPost()),
         onDeletePost: (postId) => dispatch(actions.DeletePost(postId)),
-        onSignIn: (user) => dispatch(actions.HandleAuth(user))
+        onSignIn: (user) => dispatch(actions.HandleAuth(user)),
+        onLikePost: (username, postId) => dispatch(actions.likePost(username, postId)),
+        onUnlikePost: (id, unlikeId) => dispatch(actions.unlikePost(id, unlikeId))
     };
 };
 

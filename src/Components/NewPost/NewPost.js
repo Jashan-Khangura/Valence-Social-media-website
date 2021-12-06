@@ -54,7 +54,6 @@ if(image != null){
             .child(image.name)
             .getDownloadURL()
             .then(url => {
-                console.log(url);
               this.setState({url: url, loading: false});
             });
         }
@@ -67,12 +66,13 @@ onSubmitComment = (e) => {
     e.preventDefault();
 
     const userDeatil = this.props.currentUser.split('@')[0];
-const postData = {
+
+    const postData = {
     Comment: this.state.input,
     ImageUrl: this.state.url,
     Date: this.state.currentDate,
-    User: userDeatil,
-}
+    User: userDeatil
+    }
 
 this.props.newPostData(postData);
 
@@ -96,7 +96,7 @@ let imageInput = <div className="image-upload">
      </div> 
 
     if(this.state.selectedFile != null && !this.state.loading){
-        imageInput = <Button className="btn btn-warning"
+        imageInput = <Button className="btn btn-success"
         style={{marginLeft: "5px"}}
         onClick={this.onUploadFile}>
             Upload

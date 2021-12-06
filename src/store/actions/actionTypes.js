@@ -1,5 +1,8 @@
 export const New_Auth = 'New_Auth';
 
+export const Like_Post = 'Like_Post';
+export const Unlike_Post = 'Unlike_Post';
+
 export const New_Post_Success = 'New_Post_Success';
 export const New_Post_Error = 'New_Post_Error';
 
